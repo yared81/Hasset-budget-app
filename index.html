@@ -20,7 +20,7 @@
                     </div>
                     <div id="expenses-container">
                         <h2>Expenses</h2>
-                        <!-- Expense rows are added by JS -->
+                         
                     </div>
                     <button type="button" id="add-expense">Add Expense</button>
                     <button type="submit" id="calculate">Calculate</button>
@@ -31,7 +31,7 @@
                 <div id="category-budgets-section">
                     <h3>Category Budgets</h3>
                     <div id="category-budgets-list">
-                        <!-- Category budget inputs will be added here by JS -->
+                         
                     </div>
                 </div>
                 <div id="reminders-section">
@@ -53,6 +53,8 @@
                     </form>
                     <ul id="goals-list"></ul>
                 </div>
+            </div>
+            <div class="right-panel">
                 <div id="results">
                     <div class="summary">
                         <p>Total Expenses: <span id="total-expenses">ETB 0.00</span></p>
@@ -60,14 +62,14 @@
                     </div>
                     <div id="warning" class="warning" style="display:none;">You are overspending!</div>
                 </div>
-            </div>
-            <div class="right-panel">
-                <div class="chart-container">
-                    <canvas id="expenses-chart"></canvas>
-                </div>
-                <div class="chart-container" style="margin-top:24px;">
-                    <h3 style="text-align:center;">Spending Trends</h3>
-                    <canvas id="trends-chart"></canvas>
+                <div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;">
+                    <div class="chart-container">
+                        <canvas id="expenses-chart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3 style="text-align:center;">Spending Trends</h3>
+                        <canvas id="trends-chart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>

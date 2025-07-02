@@ -4,15 +4,16 @@ body {
     margin: 0;
     padding: 0;
     color: #222;
+    font-size: 15px;
 }
 
 .container {
-    max-width: 900px;
-    margin: 40px auto;
+    max-width: 1200px;
+    margin: 24px auto;
     background: #fff;
-    border-radius: 16px;
+    border-radius: 12px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    padding: 32px 24px 24px 24px;
+    padding: 18px 10px 12px 10px;
     transition: box-shadow 0.3s;
 }
 
@@ -36,31 +37,40 @@ body {
     align-items: center;
 }
 
+.right-panel > div:first-child {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 h1 {
     text-align: center;
-    margin-bottom: 24px;
-    font-size: 2rem;
+    margin-bottom: 16px;
+    font-size: 1.3rem;
     font-weight: 600;
     color: #2a3b8f;
 }
 
 .input-group, #expenses-container {
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 label {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     font-weight: 500;
+    font-size: 0.98rem;
 }
 
 input[type="number"], input[type="text"] {
     width: 100%;
-    padding: 10px;
+    padding: 7px;
     border: 1px solid #d1d5db;
-    border-radius: 6px;
-    font-size: 1rem;
-    margin-bottom: 8px;
+    border-radius: 5px;
+    font-size: 0.98rem;
+    margin-bottom: 6px;
     transition: border 0.2s;
 }
 
@@ -71,9 +81,9 @@ input[type="number"]:focus, input[type="text"]:focus {
 
 .expense-row {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     transition: background 0.2s;
 }
 
@@ -86,9 +96,9 @@ input[type="number"]:focus, input[type="text"]:focus {
     color: #fff;
     border: none;
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    font-size: 1.2rem;
+    width: 26px;
+    height: 26px;
+    font-size: 1rem;
     cursor: pointer;
     transition: background 0.2s;
 }
@@ -97,31 +107,37 @@ input[type="number"]:focus, input[type="text"]:focus {
     background: #d32f2f;
 }
 
-#add-expense, #calculate {
+#add-expense, #calculate, .export-btn, #reminder-form button, #goal-form button {
     background: #2a3b8f;
     color: #fff;
     border: none;
-    border-radius: 6px;
-    padding: 10px 18px;
-    font-size: 1rem;
+    border-radius: 5px;
+    padding: 7px 12px;
+    font-size: 0.98rem;
     margin-right: 8px;
     cursor: pointer;
     transition: background 0.2s, transform 0.2s;
 }
 
-#add-expense:hover, #calculate:hover {
+#add-expense:hover, #calculate:hover, .export-btn:hover, #reminder-form button:hover, #goal-form button:hover {
     background: #1e2766;
     transform: translateY(-2px);
 }
 
 #results {
-    margin-top: 24px;
+    margin-bottom: 12px;
     text-align: center;
+    background: #f8fafc;
+    border-radius: 7px;
+    padding: 7px 0 4px 0;
+    box-shadow: 0 1px 4px rgba(42,59,143,0.04);
+    font-size: 0.98rem;
+    font-weight: 500;
 }
-
-.summary p {
-    margin: 8px 0;
-    font-size: 1.1rem;
+#results .summary p {
+    margin: 4px 0;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 #total-expenses, #remaining-balance {
@@ -151,12 +167,12 @@ input[type="number"]:focus, input[type="text"]:focus {
 
 .chart-container {
     width: 100%;
-    max-width: 350px;
-    min-height: 260px;
+    max-width: 420px;
+    min-height: 180px;
     margin-top: 0;
     background: #f8fafc;
-    border-radius: 12px;
-    padding: 18px 8px 8px 8px;
+    border-radius: 10px;
+    padding: 10px 4px 4px 4px;
     box-shadow: 0 2px 8px rgba(42,59,143,0.06);
     display: flex;
     justify-content: center;
@@ -166,6 +182,10 @@ input[type="number"]:focus, input[type="text"]:focus {
 
 @media (max-width: 900px) {
     .main-content {
+        flex-direction: column;
+        gap: 0;
+    }
+    .right-panel > div:first-child {
         flex-direction: column;
         gap: 0;
     }
@@ -198,18 +218,18 @@ input[type="number"]:focus, input[type="text"]:focus {
     gap: 2px;
 }
 
-#category-budgets-section {
-    margin-top: 28px;
+#category-budgets-section, #reminders-section, #goals-section {
+    margin-top: 18px;
     background: #f8fafc;
-    border-radius: 8px;
-    padding: 16px 12px;
+    border-radius: 7px;
+    padding: 10px 7px;
     box-shadow: 0 1px 4px rgba(42,59,143,0.04);
 }
-#category-budgets-section h3 {
+#category-budgets-section h3, #reminders-section h3, #goals-section h3 {
     margin-top: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #2a3b8f;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 #category-budgets-list {
     display: flex;
@@ -227,17 +247,17 @@ input[type="number"]:focus, input[type="text"]:focus {
     color: #333;
 }
 .category-budget-row input[type="number"] {
-    width: 100px;
-    padding: 6px;
-    font-size: 1rem;
+    width: 70px;
+    padding: 4px;
+    font-size: 0.98rem;
 }
 
 /* Progress bar for category budgets */
 .category-progress {
     width: 100%;
-    height: 8px;
+    height: 6px;
     background: #e0e7ff;
-    border-radius: 4px;
+    border-radius: 3px;
     margin-top: 2px;
     margin-bottom: 2px;
     overflow: hidden;
@@ -258,43 +278,16 @@ input[type="number"]:focus, input[type="text"]:focus {
     display: block;
 }
 
-#reminders-section, #goals-section {
-    margin-top: 28px;
-    background: #f8fafc;
-    border-radius: 8px;
-    padding: 16px 12px;
-    box-shadow: 0 1px 4px rgba(42,59,143,0.04);
-}
-#reminders-section h3, #goals-section h3 {
-    margin-top: 0;
-    font-size: 1.1rem;
-    color: #2a3b8f;
-    margin-bottom: 10px;
-}
 #reminder-form, #goal-form {
     display: flex;
-    gap: 8px;
-    margin-bottom: 10px;
+    gap: 6px;
+    margin-bottom: 6px;
     flex-wrap: wrap;
 }
 #reminder-form input, #goal-form input {
-    flex: 1 1 120px;
-    padding: 6px;
-    font-size: 1rem;
-}
-#reminder-form button, #goal-form button {
-    background: #2a3b8f;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 14px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-}
-#reminder-form button:hover, #goal-form button:hover {
-    background: #1e2766;
-    transform: translateY(-2px);
+    flex: 1 1 90px;
+    padding: 4px;
+    font-size: 0.98rem;
 }
 #reminders-list, #goals-list {
     list-style: none;
@@ -305,9 +298,9 @@ input[type="number"]:focus, input[type="text"]:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 6px 0;
+    padding: 4px 0;
     border-bottom: 1px solid #e0e7ff;
-    font-size: 1rem;
+    font-size: 0.98rem;
 }
 #reminders-list li:last-child, #goals-list li:last-child {
     border-bottom: none;
@@ -318,9 +311,9 @@ input[type="number"]:focus, input[type="text"]:focus {
 }
 .goal-progress {
     width: 100%;
-    height: 8px;
+    height: 6px;
     background: #e0e7ff;
-    border-radius: 4px;
+    border-radius: 3px;
     margin-top: 2px;
     margin-bottom: 2px;
     overflow: hidden;
