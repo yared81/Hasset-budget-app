@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let trendsChart = null;
 
     function formatCurrency(value) {
-        return '$' + Number(value).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        return 'ETB ' + Number(value).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
     function addExpenseRow(category = '', amount = '', recurring = false) {
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 label: function(context) {
                                     const label = context.label || '';
                                     const value = context.parsed || 0;
-                                    return `${label}: $${value.toLocaleString(undefined, {minimumFractionDigits:2})}`;
+                                    return `${label}: ETB ${value.toLocaleString(undefined, {minimumFractionDigits:2})}`;
                                 }
                             }
                         }
@@ -310,22 +310,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function exportCSV() {
         const expenses = getExpenses();
-        let csv = 'Category,Amount,Recurring\n';
+        let csv = 'Category,Amount (ETB),Recurring\n';
         expenses.forEach(e => {
             csv += `${e.category},${e.amount},${e.recurring ? 'Yes' : 'No'}\n`;
         });
         csv += '\n';
-        csv += 'Reminders\nName,Date,Amount\n';
+        csv += 'Reminders\nName,Date,Amount (ETB)\n';
         reminders.forEach(r => {
             csv += `${r.name},${r.date},${r.amount}\n`;
         });
         csv += '\n';
-        csv += 'Goals\nName,Target\n';
+        csv += 'Goals\nName,Target (ETB)\n';
         goals.forEach(g => {
             csv += `${g.name},${g.target}\n`;
         });
         csv += '\n';
-        csv += 'Spending History\nMonth,Total\n';
+        csv += 'Spending History\nMonth,Total (ETB)\n';
         Object.keys(spendingHistory).forEach(month => {
             csv += `${month},${spendingHistory[month]}\n`;
         });
@@ -344,20 +344,20 @@ document.addEventListener('DOMContentLoaded', function () {
     function exportExcel() {
         const expenses = getExpenses();
         const ws_data = [
-            ['Category', 'Amount', 'Recurring'],
+            ['Category', 'Amount (ETB)', 'Recurring'],
             ...expenses.map(e => [e.category, e.amount, e.recurring ? 'Yes' : 'No'])
         ];
         ws_data.push([]);
         ws_data.push(['Reminders']);
-        ws_data.push(['Name', 'Date', 'Amount']);
+        ws_data.push(['Name', 'Date', 'Amount (ETB)']);
         reminders.forEach(r => ws_data.push([r.name, r.date, r.amount]));
         ws_data.push([]);
         ws_data.push(['Goals']);
-        ws_data.push(['Name', 'Target']);
+        ws_data.push(['Name', 'Target (ETB)']);
         goals.forEach(g => ws_data.push([g.name, g.target]));
         ws_data.push([]);
         ws_data.push(['Spending History']);
-        ws_data.push(['Month', 'Total']);
+        ws_data.push(['Month', 'Total (ETB)']);
         Object.keys(spendingHistory).forEach(month => ws_data.push([month, spendingHistory[month]]));
         const ws = XLSX.utils.aoa_to_sheet(ws_data);
         const wb = XLSX.utils.book_new();
@@ -377,28 +377,28 @@ document.addEventListener('DOMContentLoaded', function () {
         y += 6;
         const expenses = getExpenses();
         expenses.forEach(e => {
-            doc.text(`${e.category} - $${e.amount} - ${e.recurring ? 'Recurring' : 'One-time'}`, 12, y);
+            doc.text(`${e.category} - ETB ${e.amount} - ${e.recurring ? 'Recurring' : 'One-time'}`, 12, y);
             y += 6;
         });
         y += 4;
         doc.text('Reminders:', 10, y);
         y += 6;
         reminders.forEach(r => {
-            doc.text(`${r.name} - $${r.amount} - ${r.date}`, 12, y);
+            doc.text(`${r.name} - ETB ${r.amount} - ${r.date}`, 12, y);
             y += 6;
         });
         y += 4;
         doc.text('Goals:', 10, y);
         y += 6;
         goals.forEach(g => {
-            doc.text(`${g.name} - Target: $${g.target}`, 12, y);
+            doc.text(`${g.name} - Target: ETB ${g.target}`, 12, y);
             y += 6;
         });
         y += 4;
         doc.text('Spending History:', 10, y);
         y += 6;
         Object.keys(spendingHistory).forEach(month => {
-            doc.text(`${month}: $${spendingHistory[month]}`, 12, y);
+            doc.text(`${month}: ETB ${spendingHistory[month]}`, 12, y);
             y += 6;
         });
         doc.save('budget_data.pdf');
