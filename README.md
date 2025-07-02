@@ -44,14 +44,7 @@ No installation or backend required. All features work offline and data is saved
 - **Savings Goals:** Set savings goals and track your progress visually.
 - **Export:** Download your data as CSV, Excel, or PDF for backup or analysis.
 
----
-
-## 🙏 Credits
-
-- UI inspired by modern budgeting apps like Mint, YNAB, and Buxfer.
-- Built with ❤️ by [Your Name].
-
----
+ 
 
 ## 📬 Feedback & Contributions
 
